@@ -19,16 +19,20 @@ install.packages( 'viridisLite', repos = 'http://cran.us.r-project.org')
 library( corrplot )
 library( corrgram )
 library( viridisLite )
+
 help( corrplot)
+
 corrplot( cor.data, method = 'color')
 corrgram(df, order = TRUE, panel = panel.shade, lower.panel = panel.shade, upper.panel = panel.pie,
          text.panel = panel.txt)
 ggplot( df, aes( x = G3)) + geom_histogram( bins = 20, alpha = 0.5, fill = 'blue') + theme_minimal()
 
 #install.packages( 'caTools') 
+
 library( caTools)
 
 # Aufteilen in Trainings und Test Daten
+
 set.seed( 101 )
 sample = sample.split( df$G3, SplitRatio = 0.70 )
 train = subset( df, sample = TRUE)
